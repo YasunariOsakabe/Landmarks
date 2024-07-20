@@ -13,7 +13,18 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            VStack(alignment: .leading) {
+                Text("Turtle Rock")
+                    .font(.title)
+                .foregroundColor(.black)
+                HStack {
+                    Text(/*@START_MENU_TOKEN@*/"Joshua Tree National Park"/*@END_MENU_TOKEN@*/)
+                        .font(.subheadline)
+                    Spacer() //Spacerを入れるとTextが画面の左右両端に揃うようにスペースが入る
+                    Text("California")
+                        .font(.subheadline)
+                }
+            }
         }
         .padding()
     }
