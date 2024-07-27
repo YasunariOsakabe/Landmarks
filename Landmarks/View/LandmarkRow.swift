@@ -22,6 +22,9 @@ struct LandmarkRow: View {
 }
 
 #Preview {
-    //landmarksはDecodoされたjsonデータを格納
-    LandmarkRow(landMark: landmarks[0])
+    //異なるViewを並べてPreviewしたい場合には、Groupを使用してまとめることも可能
+    Group {
+        LandmarkRow(landMark: landmarks[0])
+        LandmarkRow(landMark: landmarks[1])
+    }
 }
