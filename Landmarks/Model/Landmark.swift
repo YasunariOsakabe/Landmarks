@@ -10,7 +10,7 @@ import SwiftUI
 import CoreLocation //MapKitとのやりとりに役立つ
 
 //Hashable - ハッシュ値の使用を可能にするプロトコル
-struct Landmark: Codable, Hashable {
+struct Landmark: Codable, Hashable, Identifiable {
     var id: Int
     var name: String
     var park: String
