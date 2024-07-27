@@ -27,6 +27,7 @@ struct Landmark: Codable, Hashable {
     //coordinates - 座標
     private var coordinates: Coordinates
     
+    //MapKit定義時に役立つlocationCoordinateを定義
     var locationCoordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D(
             latitude: coordinates.latitude,
