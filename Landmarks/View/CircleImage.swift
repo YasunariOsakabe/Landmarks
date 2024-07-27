@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct CircleImage: View {
+    //外部からデータソースを受け取るための変数を定義: 動的プログラムにするため
+    var image: Image
     var body: some View {
-        Image(/*@START_MENU_TOKEN@*/"turtlerock"/*@END_MENU_TOKEN@*/)
+        image
             .clipShape(Circle()) //円形のクリッピングシェイプを画像に
             .overlay(
                 Circle().stroke(.white, lineWidth: 4)
@@ -19,5 +21,5 @@ struct CircleImage: View {
 }   
 
 #Preview {
-    CircleImage()
+    CircleImage(image: Image("turtlerock"))
 }

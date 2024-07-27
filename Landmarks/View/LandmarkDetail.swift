@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct LandmarkDetail: View {
+    var landmark: Landmark
     var body: some View {
-        VStack {
-            MapView()
+        ScrollView {
+            //動的にするために追加したプロパティを外部から受け取り
+            MapView(coordinate: landmark.locationCoordinate)
                 .frame(height: 300)
-            CircleImage()
+            //動的にするために追加したプロパティを外部から受け取り
+            CircleImage(image: landmark.image)
                 .offset(y: -130) //y軸方向(垂直)に-130を指定 →130pt上に移動
                 .padding(.bottom, -130) //下の余白を130pt縮小
             VStack {
@@ -20,22 +23,22 @@ struct LandmarkDetail: View {
                     .imageScale(.large)
                     .foregroundStyle(.tint)
                 VStack(alignment: .leading) {
-                    Text("Turtle Rock")
+                    Text(landmark.name)
                         .font(.title)
                         .foregroundColor(.black)
                     HStack {
-                        Text(/*@START_MENU_TOKEN@*/"Joshua Tree National Park"/*@END_MENU_TOKEN@*/)
+                        Text(landmark.park)
                         Spacer() //Spacerを入れるとTextが画面の左右両端に揃うようにスペースが入る
-                        Text("California")
+                        Text(landmark.state)
                     }
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                     
                     Divider() //区切り線を表示
                     
-                    Text("About Turtle Rock")
+                    Text("About \(landmark.name)")
                         .font(.title2)
-                    Text("Descriptive text goes here.")
+                    Text(landmark.description)
                 }
             }
             .padding()
@@ -46,5 +49,5 @@ struct LandmarkDetail: View {
 }
 
 #Preview {
-    LandmarkDetail()
+    LandmarkDetail(landmark: landmarks[0])
 }
